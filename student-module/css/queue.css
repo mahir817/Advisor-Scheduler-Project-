@@ -171,16 +171,16 @@ body {
 }
 .queue-row-left.highlight {
     font-weight: bold;
-    color: #007BFF;
+    color: #8dfa44;
 }
 .queue-row-right.green {
-    color: #28A745;
+    color: #3da7e0;
 }
 .queue-row-right.orange {
     color: #FD7E14;
 }
 .queue-row-right.grey {
-    color: #888888;
+    color: #8eff69;
 }
 
 .profile-section {
