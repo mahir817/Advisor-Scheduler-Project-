@@ -1,1 +1,357 @@
-/* === Student Module Styles === */
+body {
+    background-color: #DCEFFE;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.main-container {
+    max-width: 1200px;
+    padding: 40px;
+    margin: 0 auto;
+}
+
+/* Header Section */
+.header-title {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.header-title .hello {
+    font-weight: bold;
+    color: #000;
+    display: inline-block;
+}
+
+.header-title .name {
+    font-weight: bold;
+    color: #8A2BE2;
+    display: inline-block;
+}
+
+.header-subtitle {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+/* Common Layout */
+.row {
+    width: 100%;
+    margin-bottom: 30px;
+    overflow: hidden; /* Clearfix */
+}
+
+.card {
+    background-color: #FFF;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.section-title {
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Top Row Layout */
+.col-token {
+    float: left;
+    width: 58%;
+    margin-right: 4%;
+}
+
+.col-quick-actions {
+    float: left;
+    width: 38%;
+}
+
+/* Token Status Card */
+.token-card {
+    position: relative;
+}
+
+.token-label {
+    font-weight: bold;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.token-status {
+    font-size: 40px;
+    font-weight: bold;
+    color: #007BFF;
+    margin-bottom: 5px;
+}
+
+.token-sub {
+    font-size: 14px;
+    color: #777;
+    margin-bottom: 40px;
+}
+
+.token-right {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    text-align: right;
+}
+
+.token-time {
+    font-size: 32px;
+    font-weight: bold;
+    color: #28A745;
+}
+
+.token-wait {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Progress Bar */
+.progress-bar-container {
+    width: 100%;
+    position: relative;
+    padding-top: 10px;
+}
+
+.progress-line {
+    width: 75%;
+    height: 4px;
+    background-color: #E0E0E0;
+    position: absolute;
+    top: 16px;
+    left: 12.5%;
+    z-index: 1;
+}
+
+.progress-nodes {
+    width: 100%;
+    overflow: hidden;
+}
+
+.node-wrapper {
+    float: left;
+    width: 25%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.node-circle {
+    width: 16px;
+    height: 16px;
+    background-color: #E0E0E0;
+    border-radius: 50%;
+    margin: 0 auto 10px auto;
+}
+
+.node-label {
+    font-size: 12px;
+    color: #777;
+}
+
+/* Quick Actions Card */
+.quick-cards-wrapper {
+    overflow: hidden;
+}
+
+.action-card {
+    float: left;
+    width: 48%;
+    padding: 30px 10px;
+    border-radius: 12px;
+    text-align: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.action-card.bg-white {
+    background-color: #FFF;
+    margin-right: 4%;
+}
+
+.action-card.bg-grey {
+    background-color: #EFEFEF;
+}
+
+.action-icon {
+    font-size: 32px;
+    color: #007BFF;
+    margin-bottom: 15px;
+}
+
+.action-text {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Bottom Row Layout */
+.col-advisor {
+    float: left;
+    width: 38%;
+    margin-right: 4%;
+}
+
+.col-faculty {
+    float: left;
+    width: 58%;
+}
+
+/* Current Advisor Card */
+.ca-title {
+    font-weight: bold;
+    font-size: 16px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.user-info {
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.user-icon-circle {
+    width: 40px;
+    height: 40px;
+    background-color: #E3F2FD;
+    border-radius: 50%;
+    color: #007BFF;
+    font-size: 20px;
+    line-height: 40px;
+    text-align: center;
+    float: left;
+    margin-right: 15px;
+}
+
+.user-details {
+    float: left;
+    padding-top: 2px;
+}
+
+.user-name {
+    font-weight: bold;
+    font-size: 15px;
+    color: #333;
+}
+
+.user-dept {
+    font-size: 12px;
+    color: #777;
+    margin-top: 3px;
+}
+
+.run-token-label {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.run-token-num {
+    font-size: 48px;
+    font-weight: bold;
+    color: #DC3545;
+    margin-bottom: 15px;
+}
+
+.info-row {
+    font-size: 13px;
+    color: #555;
+    margin-bottom: 25px;
+}
+
+.info-item {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.btn-group {
+    overflow: hidden;
+}
+
+.btn {
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: bold;
+    color: #FFF;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: inline-block;
+}
+
+.btn-cyan {
+    background-color: #17A2B8;
+}
+
+.btn-blue {
+    background-color: #007BFF;
+}
+
+.btn-ask {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+
+.btn-view {
+    float: left;
+    width: 48%;
+}
+
+/* Available Faculty Card */
+.faculty-list {
+    margin-bottom: 15px;
+}
+
+.faculty-row {
+    overflow: hidden;
+    padding: 15px 0;
+    border-bottom: 1px solid #EEE;
+}
+
+.faculty-row:last-child {
+    border-bottom: none;
+}
+
+.faculty-left {
+    float: left;
+    width: 45%;
+}
+
+.faculty-right {
+    float: right;
+    width: 55%;
+    text-align: right;
+    padding-top: 5px;
+}
+
+.pill {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    margin-left: 10px;
+}
+
+.pill-green {
+    background-color: #28A745;
+}
+
+.pill-orange {
+    background-color: #FD7E14;
+}
+
+.btn-view-all {
+    float: right;
+    padding: 8px 20px;
+}

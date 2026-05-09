@@ -1,16 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Dashboard</title>
     <link rel="stylesheet" href="css/student.css">
 </head>
-
 <body>
-    <h1>Student Dashboard</h1>
+    <div class="main-container">
+        <div class="header-title">
+            <div class="hello">Hello,</div>
+            <div class="name">Mahir!</div>
+        </div>
+        <div class="header-subtitle">Welcome back to your advising portal.</div>
+        
+        <div class="row">
+            <div class="col-token">
+                <div class="card token-card">
+                    <div class="token-label">Token Number</div>
+                    <div class="token-status">No Advising</div>
+                    <div class="token-sub">You have to book an appointment first</div>
+                    
+                    <div class="token-right">
+                        <div class="token-time">0 mins</div>
+                        <div class="token-wait">&#128336; Est. wait</div>
+                    </div>
+                    
+                    <div class="progress-bar-container">
+                        <div class="progress-line"></div>
+                        <div class="progress-nodes">
+                            <div class="node-wrapper">
+                                <div class="node-circle"></div>
+                                <div class="node-label">Booked</div>
+                            </div>
+                            <div class="node-wrapper">
+                                <div class="node-circle"></div>
+                                <div class="node-label">Waiting</div>
+                            </div>
+                            <div class="node-wrapper">
+                                <div class="node-circle"></div>
+                                <div class="node-label">Serving</div>
+                            </div>
+                            <div class="node-wrapper">
+                                <div class="node-circle"></div>
+                                <div class="node-label">Canceled</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-quick-actions">
+                <div class="section-title">Quick Actions</div>
+                <div class="quick-cards-wrapper">
+                    <div class="action-card bg-white">
+                        <div class="action-icon">&#128197;</div>
+                        <div class="action-text">Book Advisor</div>
+                    </div>
+                    <div class="action-card bg-grey">
+                        <div class="action-icon">&#128196;</div>
+                        <div class="action-text">Upload Documents</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-advisor">
+                <div class="section-title">Attending Advisors</div>
+                <div class="card">
+                    <div class="ca-title">Current Advisor</div>
+                    <div class="user-info">
+                        <div class="user-icon-circle">&#128100;</div>
+                        <div class="user-details">
+                            <div class="user-name">Mahmudul Hasan</div>
+                            <div class="user-dept">Computer Science Dept.</div>
+                        </div>
+                    </div>
+                    
+                    <div class="run-token-label">Running token Number</div>
+                    <div class="run-token-num">#1</div>
+                    
+                    <div class="info-row">
+                        <div class="info-item">&#128197; Oct 26, 2023</div>
+                        <div class="info-item">&#128336; 10:00 AM</div>
+                        <div class="info-item">&#127968; Room Number 512(A)</div>
+                    </div>
+                    
+                    <div class="btn-group">
+                        <div class="btn btn-cyan btn-ask">Ask for advising</div>
+                        <div class="btn btn-blue btn-view">View Details</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-faculty">
+                <div class="section-title">Available Faculty</div>
+                <div class="card" style="padding-bottom: 50px;">
+                    <div class="faculty-list">
+                        <div class="faculty-row">
+                            <div class="faculty-left">
+                                <div class="user-info" style="margin-bottom:0;">
+                                    <div class="user-icon-circle">&#128100;</div>
+                                    <div class="user-details">
+                                        <div class="user-name">Dr. Ohidujjaman</div>
+                                        <div class="user-dept">Computer Science</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faculty-right">
+                                <div class="btn btn-cyan" style="padding: 5px 10px; font-size:12px;">Ask for advising</div>
+                                <div class="pill pill-green">Available</div>
+                            </div>
+                        </div>
+                        
+                        <div class="faculty-row">
+                            <div class="faculty-left">
+                                <div class="user-info" style="margin-bottom:0;">
+                                    <div class="user-icon-circle">&#128100;</div>
+                                    <div class="user-details">
+                                        <div class="user-name">Sadia Islam</div>
+                                        <div class="user-dept">Engineering</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faculty-right">
+                                <div class="pill pill-orange">Busy</div>
+                            </div>
+                        </div>
+                        
+                        <div class="faculty-row">
+                            <div class="faculty-left">
+                                <div class="user-info" style="margin-bottom:0;">
+                                    <div class="user-icon-circle">&#128100;</div>
+                                    <div class="user-details">
+                                        <div class="user-name">Md. Asaduzzaman</div>
+                                        <div class="user-dept">Mathematics</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="faculty-right">
+                                <div class="btn btn-cyan" style="padding: 5px 10px; font-size:12px;">Ask for advising</div>
+                                <div class="pill pill-green">Available</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="btn btn-blue btn-view-all">View All</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script src="js/student.js"></script>
 </body>
-
 </html>
