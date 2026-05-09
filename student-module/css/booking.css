@@ -1,0 +1,241 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #DCEFFE;
+}
+.navbar {
+    width: 100%;
+    background-color: rgb(255, 208, 120);
+    border-bottom: 1px solid #E0E0E0;
+    padding: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+.nav-left {
+    padding-left: 40px;
+    width: 100px;
+}
+.nav-left a {
+    text-decoration: none;
+    font-size: 24px;
+    color: #8A2BE2;
+}
+.nav-center-container {
+    flex-grow: 1;
+    text-align: center;
+}
+.nav-center {
+    display: inline-block;
+    font-size: 32px;
+    font-weight: bold;
+    color: #8A2BE2;
+}
+.nav-center-para {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.nav-right {
+    padding-right: 40px;
+    width: 100px;
+    display: flex;
+    justify-content: flex-end;
+}
+.user-icon {
+    width: 40px;
+    height: 40px;
+    background-color: #DCEFFE;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #007BFF;
+    font-size: 20px;
+}
+.filters-container {
+    width: 800px;
+    margin: 30px auto;
+    display: flex;
+    justify-content: space-between;
+}
+.filter-dropdown {
+    width: 48%;
+    background-color: #FFFFFF;
+    border: 1px solid #CCCCCC;
+    border-radius: 8px;
+    padding: 15px;
+    box-sizing: border-box;
+    color: #333333;
+    font-size: 15px;
+    
+}
+.dropdown-arrow {
+    font-size: 12px;
+    color: #888888;
+    
+}
+.main-card {
+    width: 800px;
+    align-content: center;
+    margin-left: 230px;
+    background-color: #B4B2FC;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    box-sizing: border-box;
+}
+.card-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 40px;
+}
+.col-left {
+    width: 45%;
+}
+.col-right {
+    width: 50%;
+}
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.section-title {
+    font-weight: bold;
+    color: #222222;
+    font-size: 18px;
+}
+.month-selector {
+    display: flex;
+    align-items: center;
+    color: #333333;
+    font-weight: bold;
+    font-size: 14px;
+}
+.month-arrow {
+    color: #2D68FE;
+    font-size: 20px;
+    margin: 0 10px;
+    cursor: pointer;
+}
+.days-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+.day-label {
+    width: 38px;
+    text-align: center;
+    color: #666666;
+    font-size: 14px;
+    font-weight: bold;
+}
+.dates-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.date-box {
+    width: 38px;
+    height: 38px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    color: #333333;
+    cursor: pointer;
+}
+.date-box.faded {
+    color: #AAAAAA;
+}
+.date-box.selected {
+    background-color: #FFFF00;
+    color: #000000;
+    font-weight: bold;
+}
+.time-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 150px;
+}
+.time-box {
+    width: 80px;
+    background-color: #FFFFFF;
+    border-radius: 8px;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.time-box.selected {
+    background-color: #FFFF00;
+    color: #000000;
+    font-weight: bold;
+}
+.token-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.token-avail {
+    font-size: 12px;
+    color: #EEEEEE;
+}
+.token-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.token-box {
+    width: 80px;
+    border-radius: 8px;
+    padding: 12px 0;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+    box-sizing: border-box;
+}
+.token-red {
+    background-color: #FF3333;
+    color: #000000;
+}
+.token-green {
+    background-color: #7DF89B;
+    color: #000000;
+}
+.action-bar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.btn-cancel {
+    background-color: #FFFFFF;
+    color: #555555;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn-confirm {
+    background-color: #2D68FE;
+    color: #FFFFFF;
+    padding: 15px 40px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}

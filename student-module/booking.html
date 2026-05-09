@@ -1,13 +1,133 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Booking</title>
-    <link rel="stylesheet" href="css/student.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Book an Appointment</title>
+<link rel="stylesheet" href="css/booking.css">
 </head>
 <body>
-    <h1>Booking</h1>
-    <script src="js/student.js"></script>
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="student-dashboard.html">
+                <div>&#8592;</div>
+            </a>
+        </div>
+        <div class="nav-center-container">
+            <div class="nav-center">Book an Appointment</div>
+            <div class="nav-center-para">Find and Select your Suitable time of Appointment</div>
+        </div>
+        <div class="nav-right">
+        </div>
+    </div>
+    
+    <div class="filters-container">
+        <select class="filter-dropdown">
+            <option>Department of Computer Science</option>
+            <option>Department of Engineering</option>
+            <option>Department of Mathematics</option>
+            <option>Department of Business</option>
+        </select>
+        <select class="filter-dropdown">
+            <option>Dr. Ohidujjaman Tuhin</option>
+            <option>Sadia Islam</option>
+            <option>Fahim Hafiz</option>
+            <option>Md. Asaduzzaman</option>
+        </select>
+    </div>
+    
+    <div class="main-card">
+        <div class="card-columns">
+            <div class="col-left">
+                <div class="section-header">
+                    <div class="section-title">Select Date</div>
+                    <div class="month-selector">
+                        <div class="month-arrow">&#8249;</div>
+                        <div>May 2026</div>
+                        <div class="month-arrow">&#8250;</div>
+                    </div>
+                </div>
+                <div class="days-row">
+                    <div class="day-label">S</div>
+                    <div class="day-label">M</div>
+                    <div class="day-label">T</div>
+                    <div class="day-label">W</div>
+                    <div class="day-label">T</div>
+                    <div class="day-label">F</div>
+                    <div class="day-label">S</div>
+                </div>
+                <div class="dates-grid">
+                    <div class="date-box">1</div>
+                    <div class="date-box">2</div>
+                    <div class="date-box faded">3</div>
+                    <div class="date-box">4</div>
+                    <div class="date-box">5</div>
+                    <div class="date-box faded">6</div>
+                    <div class="date-box">7</div>
+                    <div class="date-box">8</div>
+                    <div class="date-box">9</div>
+                    <div class="date-box">10</div>
+                    <div class="date-box">11</div>
+                    <div class="date-box faded">12</div>
+                    <div class="date-box faded">13</div>
+                    <div class="date-box faded">14</div>
+                    <div class="date-box">15</div>
+                    <div class="date-box">16</div>
+                    <div class="date-box">17</div>
+                    <div class="date-box">18</div>
+                    <div class="date-box faded">19</div>
+                    <div class="date-box faded">20</div>
+                    <div class="date-box">21</div>
+                    <div class="date-box">22</div>
+                    <div class="date-box">23</div>
+                    <div class="date-box">24</div>
+                    <div class="date-box">25</div>
+                    <div class="date-box selected">26</div>
+                    <div class="date-box faded">27</div>
+                    <div class="date-box">28</div>
+                    <div class="date-box">29</div>
+                    <div class="date-box">30</div>
+                    <div class="date-box">31</div>
+                </div>
+            </div>
+            
+            <div class="col-right">
+                <div class="section-header">
+                    <div class="section-title">Select Time</div>
+                </div>
+                <div class="time-grid">
+                    <div class="time-box">08:30 AM</div>
+                    <div class="time-box">09:51 AM</div>
+                    <div class="time-box">11:11 AM</div>
+                    <div class="time-box">12:30 AM</div>
+                    <div class="time-box selected">01:51 AM</div>
+                    <div class="time-box">02:00 AM</div>
+                    <div class="time-box">03:10 PM</div>
+                    <div class="time-box">04:30 PM</div>
+                    
+                </div>
+                
+                <div class="token-header">
+                    <div class="section-title">Take Your Token</div>
+                    <div class="token-avail">Next Available Token is 3</div>
+                </div>
+                <div class="token-grid">
+                    <div class="token-box token-red">1</div>
+                    <div class="token-box token-red">2</div>
+                    <div class="token-box token-green">3</div>
+                    <div class="token-box token-green">4</div>
+                    <div class="token-box token-green">5</div>
+                    <div class="token-box token-green">6</div>
+                    <div class="token-box token-green">7</div>
+                    <div class="token-box token-green">8</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="action-bar">
+            <div class="btn-cancel">Cancel</div>
+            <div class="btn-confirm">Confirm Appointment</div>
+        </div>
+    </div>
 </body>
 </html>
