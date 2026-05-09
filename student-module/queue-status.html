@@ -1,13 +1,106 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queue Status</title>
-    <link rel="stylesheet" href="css/student.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title></title>
+<link rel="stylesheet" href="css/queue.css">
 </head>
 <body>
-    <h1>Queue Status</h1>
-    <script src="js/student.js"></script>
+    <div class="navbar">
+        <div class="nav-left">
+            <a href="student-dashboard.html">
+                <div>&#8592;</div>
+            </a>
+        </div>
+        <div class="nav-center">Live Queue Status</div>
+    </div>
+
+    <div class="main-container">
+        <div class="col-left">
+            <div class="card">
+                <div class="section-header">Queue Progress</div>
+                <div class="divider"></div>
+                
+                <div class="status-boxes">
+                    <div class="status-box status-box-serving">
+                        <div class="status-box-title">Now Serving</div>
+                        <div class="status-box-number-serving">#3</div>
+                    </div>
+                    <div class="status-box status-box-token">
+                        <div class="status-box-title">Available Token</div>
+                        <div class="status-box-number-token">#5</div>
+                    </div>
+                </div>
+                
+                <div class="wait-time">Estimated Wait Time: 15 - 20 minutes</div>
+                
+                <div class="timeline-container">
+                    <div class="timeline-track"></div>
+                    <div class="timeline-nodes">
+                        <div class="timeline-node">
+                            <div class="node-circle-grey"></div>
+                            <div class="node-label">Booked</div>
+                        </div>
+                        <div class="timeline-node">
+                            <div class="node-circle-grey"></div>
+                            <div class="node-label">Waiting</div>
+                        </div>
+                        <div class="timeline-node">
+                            <div class="node-circle-grey"></div>
+                            <div class="node-label">Serving</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="queue-list">
+                    <div class="queue-row">
+                        <div class="queue-row-left">Token #3</div>
+                        <div class="queue-row-right green">In Session</div>
+                    </div>
+                    <div class="queue-row">
+                        <div class="queue-row-left">Token #4</div>
+                        <div class="queue-row-right orange">Next</div>
+                    </div>
+                    <div class="queue-row">
+                        <div class="queue-row-left highlight">Token #5</div>
+                        <div class="queue-row-right grey">Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-right">
+            <div class="card">
+                <div class="section-header">Advisor Details</div>
+                <div class="divider"></div>
+                
+                <div class="profile-section">
+                    <div class="profile-icon-bg">
+                        <div class="profile-icon">&#128100;</div>
+                    </div>
+                    <div class="profile-name">Mahmudul Hasan</div>
+                    <div class="profile-dept">Computer Science Dept.</div>
+                </div>
+                
+                <div class="info-section">
+                    <div class="info-row">
+                        <div class="info-icon">&#128197;</div>
+                        <div>Oct 26, 2023</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">&#128336;</div>
+                        <div>10:00 AM</div>
+                    </div>
+                    <div class="info-row">
+                        <div class="info-icon">&#127968;</div>
+                        <div>Room Number 512(A)</div>
+                    </div>
+                </div>
+                
+                <div class="btn-cancel">Take An Appointment</div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
