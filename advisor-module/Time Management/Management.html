@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Advisor Portal</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="Management.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+
+      <div>
+        <div class="portal-small">Advisor Portal</div>
+        <div class="title">Time Management</div>
+      </div>
+
+      <div class="user">
+
+        <div class="user-info">
+          <h4>Dr. Sultana</h4>
+          <p>Academic Advisor</p>
+        </div>
+
+        <div class="avatar">S</div>
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <h1 class="section-title">Set Your Availability</h1>
+
+    <p class="section-sub">
+      Manage your weekly schedule and add custom unavailable times for students to see.
+    </p>
+
+    <!-- TABS -->
+    <div class="tabs">
+      <button class="tab active">Weekly Availability</button>
+      <button class="tab">Custom Unavailable Times</button>
+    </div>
+
+    <!-- MONDAY -->
+    <div class="day-card">
+
+      <div class="day-top">
+
+        <div class="day-left">
+
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Monday</div>
+            <div class="slot-count">2 slots configured</div>
+          </div>
+
+        </div>
+
+        <div class="status-area">
+          Available
+          <div class="toggle"></div>
+        </div>
+
+      </div>
+
+      <div class="slots">
+
+        <div class="slot">
+
+          <div class="slot-left">
+            <div class="dot"></div>
+            09:00 – 12:00
+            <span class="badge">Available</span>
+          </div>
+
+          <button class="delete-btn">×</button>
+
+        </div>
+
+        <div class="slot">
+
+          <div class="slot-left">
+            <div class="dot"></div>
+            14:00 – 17:00
+            <span class="badge">Available</span>
+          </div>
+
+          <button class="delete-btn">×</button>
+
+        </div>
+
+        <button class="add-btn">＋ Add Time Slot</button>
+
+      </div>
+
+    </div>
+
+    <!-- OTHER DAYS -->
+    <div class="day-card">
+      <div class="day-top">
+        <div class="day-left">
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Tuesday</div>
+            <div class="slot-count">1 slot configured</div>
+          </div>
+        </div>
+
+        <div class="status-area">
+          Available
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top">
+        <div class="day-left">
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Wednesday</div>
+            <div class="slot-count">1 slot configured</div>
+          </div>
+        </div>
+
+        <div class="status-area">
+          Available
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top">
+        <div class="day-left">
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Thursday</div>
+            <div class="slot-count">1 slot configured</div>
+          </div>
+        </div>
+
+        <div class="status-area">
+          Available
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top">
+        <div class="day-left">
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Friday</div>
+            <div class="slot-count">1 slot configured</div>
+          </div>
+        </div>
+
+        <div class="status-area">
+          Available
+          <div class="toggle"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top">
+        <div class="day-left">
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Saturday</div>
+            <div class="slot-count gray">Not available</div>
+          </div>
+        </div>
+
+        <div class="status-area gray">
+          Unavailable
+          <div class="toggle off"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="day-card">
+      <div class="day-top">
+        <div class="day-left">
+          <div class="icon-box">🗓</div>
+
+          <div>
+            <div class="day-name">Sunday</div>
+            <div class="slot-count gray">Not available</div>
+          </div>
+        </div>
+
+        <div class="status-area gray">
+          Unavailable
+          <div class="toggle off"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+
+      <p>Changes are saved to your advisor profile.</p>
+
+      <button class="save-btn">✔ Save Weekly Schedule</button>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

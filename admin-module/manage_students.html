@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Monitoring</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Table Header and Row Styles to match design */
+        .table-container {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+        }
+
+        .missed-count-badge {
+            background-color: #FEE2E2;
+            color: #EF4444;
+            padding: 6px 12px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: bold;
+        }
+
+        .btn-warning {
+            background-color: #3B82F6;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .btn-block {
+            background-color: #EF4444;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .no-action-text { color: #94A3B8; font-style: normal; }
+
+        /* Bottom Summary Cards */
+        .bottom-stats {
+            display: flex;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 12px;
+            flex: 1;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .stat-box h4 { margin: 0; color: #64748B; font-size: 14px; margin-bottom: 10px; }
+        .stat-box p { margin: 0; font-size: 26px; font-weight: bold; }
+        .risk-color { color: #EF4444; }
+        .good-color { color: #10B981; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>UIU Admin</h2>
+        <a href="overview.html"><span class="material-icons">dashboard</span> Overview</a>
+        <a href="manage_advisors.html"><span class="material-icons">group</span> Manage Advisors</a>
+        <a href="student-monitoring.html" class="active"><span class="material-icons">visibility</span> Student Monitoring</a>
+        <a href="appointment-logs.html"><span class="material-icons">list_alt</span> Appointment Logs</a>
+    </div>
+
+    <div class="main-area">
+        <h1>Student Attendance & Penalties</h1>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Student ID</th>
+                    <th>Student Name</th>
+                    <th>Total Appointments</th>
+                    <th>Missed Count</th>
+                    <th>Action</th>
+                </tr>
+                <tr>
+                    <td>0112210450</td>
+                    <td>Rakib Hasan</td>
+                    <td>12</td>
+                    <td>1</td>
+                    <td class="no-action-text">No action needed</td>
+                </tr>
+                <tr>
+                    <td>0112210881</td>
+                    <td>Tamim Iqbal</td>
+                    <td>15</td>
+                    <td><span class="missed-count-badge"><span class="material-icons" style="font-size: 18px;">error_outline</span> 4</span></td>
+                    <td>
+                        <button class="btn-warning"><span class="material-icons" style="font-size: 18px;">send</span> Send Warning</button>
+                        <button class="btn-block"><span class="material-icons" style="font-size: 18px;">block</span> Block</button>
+                    </td>
+                </tr>
+                <tr>
+                    <td>0112211022</td>
+                    <td>Subeh Tara</td>
+                    <td>8</td>
+                    <td>2</td>
+                    <td class="no-action-text">No action needed</td>
+                </tr>
+                <tr>
+                    <td>0112230993</td>
+                    <td>Anika Tahsin</td>
+                    <td>20</td>
+                    <td><span class="missed-count-badge"><span class="material-icons" style="font-size: 18px;">error_outline</span> 5</span></td>
+                    <td>
+                        <button class="btn-warning"><span class="material-icons" style="font-size: 18px;">send</span> Send Warning</button>
+                        <button class="btn-block"><span class="material-icons" style="font-size: 18px;">block</span> Block</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="bottom-stats">
+            <div class="stat-box">
+                <h4>Total Students</h4>
+                <p>8</p>
+            </div>
+            <div class="stat-box">
+                <h4>Students at Risk</h4>
+                <p class="risk-color">4</p>
+            </div>
+            <div class="stat-box">
+                <h4>Good Standing</h4>
+                <p class="good-color">4</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

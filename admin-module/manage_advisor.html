@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Manage Advisors</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Specific tweaks for this page to match the image exactly */
+        .add-btn {
+            background-color: #3B82F6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            margin-bottom: 25px;
+        }
+        
+        .table-header-blue {
+            background-color: #3B82F6;
+            color: white !important;
+        }
+
+        .table-header-blue th {
+            color: white !important;
+            border-bottom: none;
+        }
+
+        .action-icons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .edit-icon { color: #3B82F6; cursor: pointer; }
+        .delete-icon { color: #EF4444; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>UIU Admin</h2>
+        <a href="admin_overview.html"><span class="material-icons">dashboard</span> Overview</a>
+        <a href="manage_advisor.html" class="active"><span class="material-icons">group</span> Manage Advisors</a>
+        <a href="manage_students.html"><span class="material-icons">visibility</span> Student Monitoring</a>
+        <a href="appointment_logs.html"><span class="material-icons">list_alt</span> Appointment Logs</a>
+        <a href="../index.html" style="margin-top:20px; border-top:1px solid rgba(255,255,255,0.3); padding-top:15px;"><span class="material-icons">logout</span> Back to Portal</a>
+    </div>
+
+    <div class="main-area">
+        <h1>Manage Advisors</h1>
+
+        <button class="add-btn">
+            <span class="material-icons">add</span> Add New Advisor
+        </button>
+        
+        <div class="table-container">
+            <table>
+                <tr class="table-header-blue">
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+                <tr>
+                    <td>Dr. Sarah Johnson</td>
+                    <td>Computer Science & Engineering</td>
+                    <td>sarah.johnson@uiu.ac.bd</td>
+                    <td>
+                        <div class="action-icons">
+                            <span class="material-icons edit-icon">edit</span>
+                            <span class="material-icons delete-icon">delete</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Prof. Michael Chen</td>
+                    <td>Electrical & Electronic Engineering</td>
+                    <td>michael.chen@uiu.ac.bd</td>
+                    <td>
+                        <div class="action-icons">
+                            <span class="material-icons edit-icon">edit</span>
+                            <span class="material-icons delete-icon">delete</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Dr. Emily Rodriguez</td>
+                    <td>Civil Engineering</td>
+                    <td>emily.rodriguez@uiu.ac.bd</td>
+                    <td>
+                        <div class="action-icons">
+                            <span class="material-icons edit-icon">edit</span>
+                            <span class="material-icons delete-icon">delete</span>
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

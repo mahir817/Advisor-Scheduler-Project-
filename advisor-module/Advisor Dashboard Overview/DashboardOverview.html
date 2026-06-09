@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advisor Dashboard - UIU Advisor Scheduler</title>
+    <link rel="stylesheet" href="DashboardOverview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Shared sidebar nav override for advisor module */
+        .sidebar {
+            width: 220px;
+            background: #2f2c52;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 0;
+            position: fixed;
+            height: 100vh;
+        }
+        .sidebar-top { flex: 1; }
+        .sidebar .brand {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #cfe2ff;
+            padding: 0 20px 20px;
+            letter-spacing: 1px;
+        }
+        .menu { list-style: none; margin: 0; padding: 0; }
+        .menu li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 30px;
+            color: #cfcfcf;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+        .menu li a:hover, .menu li.active a { background: #44406b; color: white; }
+        .sidebar-bottom {
+            padding: 0 0 10px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-bottom a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 30px;
+            color: #cfcfcf;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .sidebar-bottom a:hover { background: #44406b; color: white; }
+        .main-content { margin-left: 220px; flex: 1; padding: 20px; }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div class="sidebar-top">
+            <div class="brand">UIU ADVISOR</div>
+            <ul class="menu">
+                <li class="active">
+                    <a href="DashboardOverview.html">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Student Appoinment Management/AppoinmentManagement.html">
+                        <i class="fa-solid fa-file"></i>
+                        <span>Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Time Management/Management.html">
+                        <i class="fa-solid fa-calendar"></i>
+                        <span>Schedule</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Statistics/satistics.html">
+                        <i class="fa-solid fa-clock-rotate-left"></i>
+                        <span>Statistics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-bottom">
+            <a href="../../index.html">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                <span>Back to Portal</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div class="main-content">
+
+        <!-- TOPBAR -->
+        <div class="topbar">
+            <div class="breadcrumbs">Pages &gt; Dashboard</div>
+            <div class="top-right">
+                <div class="time" id="live-time">10:59:43 PM</div>
+                <button class="status-btn">Active</button>
+                <button class="summary-btn">Daily Summary</button>
+            </div>
+        </div>
+
+        <!-- HEADER -->
+        <div class="header">
+            <div>
+                <h1>Welcome back, Dr. Rahman 👋</h1>
+                <p>Thursday, May 7 2026</p>
+            </div>
+            <div class="office-hours">Office Hours: 9:00 AM - 5:00 PM</div>
+        </div>
+
+        <!-- CARDS -->
+        <div class="cards">
+
+            <div class="card pending">
+                <div class="card-top">
+                    <p>PENDING</p>
+                    <i class="fa-solid fa-circle-exclamation yellow"></i>
+                </div>
+                <h2>3</h2>
+                <div class="card-bottom">
+                    <span class="urgent">+2 urgent</span>
+                    <a href="../Student Appoinment Management/AppoinmentManagement.html">View All →</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <p>TODAY'S APPTS</p>
+                    <i class="fa-solid fa-calendar green"></i>
+                </div>
+                <h2>6</h2>
+                <div class="card-bottom">
+                    <span class="done">7 done</span>
+                    <small>Next: 10:20 AM</small>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <p>AVG. SESSION</p>
+                    <i class="fa-solid fa-clock blue"></i>
+                </div>
+                <h2>11 <span>min</span></h2>
+                <div class="card-bottom">
+                    <span class="efficient">● Efficient</span>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-top">
+                    <p>NO-SHOWS</p>
+                    <i class="fa-solid fa-circle-xmark red"></i>
+                </div>
+                <h2>1</h2>
+                <div class="card-bottom">
+                    <span class="cancelled">Auto-cancelled</span>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ACTIVE SESSION -->
+        <div class="session-box">
+            <div class="session-header">
+                <h3>● ACTIVE SESSION</h3>
+                <span>Not started</span>
+            </div>
+            <div class="session-content">
+                <p>No active appointment right now.</p>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    // Live clock
+    function updateTime() {
+        const now = new Date();
+        document.getElementById('live-time').textContent = now.toLocaleTimeString();
+    }
+    updateTime();
+    setInterval(updateTime, 1000);
+</script>
+
+</body>
+</html>

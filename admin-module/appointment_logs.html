@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Logs</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Specific tweaks for Appointment History page */
+        .controls-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 25px;
+            align-items: center;
+            max-width: 900px; /* Reduced overall width of the control box */
+        }
+
+        .search-container {
+            flex: 2; /* Adjusting ratio to keep search bar reasonable */
+            position: relative;
+        }
+
+        .search-container input {
+            width: 100%;
+            padding: 10px 10px 10px 35px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            outline: none;
+            font-size: 14px;
+        }
+
+        .search-container .material-icons {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #94A3B8;
+            font-size: 18px;
+        }
+
+        .filter-select {
+            flex: 1; /* Dropdowns take up less space */
+            padding: 10px;
+            border-radius: 8px;
+            border: 1px solid #E2E8F0;
+            background: white;
+            font-size: 14px;
+            color: #475569;
+        }
+
+        .missed-row {
+            background-color: #FEE2E2 !important;
+        }
+
+        .missed-text {
+            color: #EF4444;
+            font-weight: bold;
+        }
+
+        .status-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        .status-completed {
+            background-color: #DBEAFE;
+            color: #3B82F6;
+        }
+
+        .footer-info {
+            margin-top: 20px;
+            color: #64748B;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h2>UIU Admin</h2>
+        <a href="overview.html"><span class="material-icons">dashboard</span> Overview</a>
+        <a href="manage_advisors.html"><span class="material-icons">group</span> Manage Advisors</a>
+        <a href="student-monitoring.html"><span class="material-icons">visibility</span> Student Monitoring</a>
+        <a href="appointment-logs.html" class="active"><span class="material-icons">list_alt</span> Appointment Logs</a>
+    </div>
+
+    <div class="main-area">
+        <h1 style="color: #1E3A8A; font-size: 24px; margin-bottom: 20px;">Complete Appointment History</h1>
+
+        <div class="controls-row">
+            <div class="search-container">
+                <span class="material-icons">search</span>
+                <input type="text" placeholder="Search by student or advisor name...">
+            </div>
+            <select class="filter-select">
+                <option>All Advisors</option>
+            </select>
+            <select class="filter-select">
+                <option>All Dates</option>
+            </select>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Missed Attempts</th>
+                    <th>Advisor Name</th>
+                    <th>Date</th>
+                    <th>Outcome</th>
+                </tr>
+                <tr class="missed-row">
+                    <td class="missed-text">Tamim Iqbal</td>
+                    <td class="missed-text">4</td>
+                    <td>Dr. Saleh Ahmed</td>
+                    <td>2026-05-10</td>
+                    <td class="missed-text">Missed</td>
+                </tr>
+                <tr>
+                    <td>Rakib Hasan</td>
+                    <td>1</td>
+                    <td>Prof. Farhana</td>
+                    <td>2026-05-09</td>
+                    <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+                <tr class="missed-row">
+                    <td class="missed-text">Anika Tahsin</td>
+                    <td class="missed-text">3</td>
+                    <td>Dr. Saleh Ahmed</td>
+                    <td>2026-05-08</td>
+                    <td class="missed-text">Missed</td>
+                </tr>
+                <tr>
+                    <td>Subeh Tara</td>
+                    <td>0</td>
+                    <td>Prof. Farhana</td>
+                    <td>2026-05-07</td>
+                    <td><span class="status-badge status-completed">Completed</span></td>
+                </tr>
+            </table>
+        </div>
+        <div class="footer-info">Showing 4 of 4 appointments</div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Management - UIU Advisor Portal</title>
+    <link rel="stylesheet" href="AppoinmentManagement.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Shared advisor sidebar */
+        body { display: flex; margin: 0; font-family: 'Segoe UI', sans-serif; background: #f0f4f8; }
+        .sidebar {
+            width: 220px;
+            background: #2f2c52;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px 0;
+            position: fixed;
+            height: 100vh;
+            z-index: 100;
+        }
+        .sidebar .brand {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            color: #cfe2ff;
+            padding: 0 20px 20px;
+            letter-spacing: 1px;
+        }
+        .menu { list-style: none; margin: 0; padding: 0; }
+        .menu li a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 30px;
+            color: #cfcfcf;
+            text-decoration: none;
+            transition: 0.2s;
+            font-size: 14px;
+        }
+        .menu li a:hover, .menu li.active a { background: #44406b; color: white; }
+        .sidebar-bottom {
+            padding: 0 0 10px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        .sidebar-bottom a {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 16px 30px;
+            color: #cfcfcf;
+            text-decoration: none;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+        .sidebar-bottom a:hover { background: #44406b; color: white; }
+        .page-content { margin-left: 220px; flex: 1; }
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+    <div class="sidebar">
+        <div>
+            <div class="brand">UIU ADVISOR</div>
+            <ul class="menu">
+                <li>
+                    <a href="../Advisor Dashboard Overview/DashboardOverview.html">
+                        <i class="fa-solid fa-house"></i><span>Home</span>
+                    </a>
+                </li>
+                <li class="active">
+                    <a href="AppoinmentManagement.html">
+                        <i class="fa-solid fa-file"></i><span>Requests</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Time Management/Management.html">
+                        <i class="fa-solid fa-calendar"></i><span>Schedule</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../Statistics/satistics.html">
+                        <i class="fa-solid fa-chart-bar"></i><span>Statistics</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="sidebar-bottom">
+            <a href="../../index.html">
+                <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Back to Portal</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+        <div class="dashboard-container">
+            <header class="header">
+                <h2>
+                    <a href="../Advisor Dashboard Overview/DashboardOverview.html"
+                       style="text-decoration:none; color:inherit;">← Advisor Command Center</a>
+                </h2>
+                <div class="user-profile">
+                    <span class="status-dot"></span> Dr. Sultana — Online
+                    <div class="avatar">DS</div>
+                </div>
+            </header>
+
+            <div class="stats-grid">
+                <div class="card current-token">
+                    <p>CURRENT TOKEN</p>
+                    <h1>#03</h1>
+                    <p>Puja Biswas</p>
+                    <button class="btn-next">Call Next →</button>
+                </div>
+
+                <div class="card next-token">
+                    <p>NEXT TOKEN</p>
+                    <h1>#04</h1>
+                    <p>Purob Khan</p>
+                    <span>Scheduled — 11:50AM</span>
+                </div>
+
+                <div class="card queue-status">
+                    <p>TODAY'S QUEUE</p>
+                    <div class="queue-numbers">
+                        <div><strong>21</strong><br>Total</div>
+                        <div><strong>8</strong><br>Served</div>
+                        <div><strong>13</strong><br>Left</div>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 38%;"></div></div>
+                    <small>38% complete</small>
+                </div>
+
+                <div class="card avg-session">
+                    <p>AVG SESSION</p>
+                    <h1>12</h1>
+                    <p>min / student</p>
+                    <span class="track-text">✓ On Track</span>
+                </div>
+            </div>
+
+            <div class="booking-section">
+                <div class="tabs">
+                    <button class="active" onclick="location.href='AppoinmentManagement.html'">Approval Queue</button>
+                    <button onclick="location.href='AppoinmentManagement.html'">Waiting List</button>
+                    <button onclick="location.href='../Statistics/satistics.html'">Statistics</button>
+                </div>
+
+                <div class="booking-list">
+                    <h3>Booking Requests</h3>
+
+                    <div class="request-row">
+                        <div class="token-id">#06</div>
+                        <div class="student-info">
+                            <strong>Rafi Ahmed</strong> <span>2021-1-60-034</span>
+                            <p>Course Add • 12:10PM</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-preview">Preview File</button>
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-decline">Decline</button>
+                        </div>
+                    </div>
+
+                    <div class="request-row">
+                        <div class="token-id">#07</div>
+                        <div class="student-info">
+                            <strong>Nadia Islam</strong> <span>2021-1-60-078</span>
+                            <p>Course Advice • 12:25PM</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-approve">Approve</button>
+                            <button class="btn-decline">Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
