@@ -2,7 +2,7 @@
 $host = 'localhost';
 $user = 'root';
 $pass = ''; // Default XAMPP password is empty
-$db   = 'uiu_advisor_db';
+$db   = 'advisor_project';
 
 $conn = new mysqli($host, $user, $pass, $db);
 

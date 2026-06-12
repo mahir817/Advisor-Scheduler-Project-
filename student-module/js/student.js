@@ -61,8 +61,33 @@ document.addEventListener('DOMContentLoaded', () => {
     const confirmBtn = document.querySelector('.btn-confirm');
     if (confirmBtn) {
         confirmBtn.addEventListener('click', function() {
-            alert('Appointment successfully booked!');
-            window.location.href = 'student-dashboard.html';
+            // Disable button
+            confirmBtn.style.opacity = '0.5';
+            confirmBtn.style.pointerEvents = 'none';
+            confirmBtn.innerText = 'Booking...';
+
+            fetch('../backend/book_appointment.php', {
+                method: 'POST',
+            })
+            .then(res => res.json())
+            .then(data => {
+                if(data.success) {
+                    alert('Appointment successfully booked!');
+                    window.location.href = 'student-dashboard.php';
+                } else {
+                    alert('Error: ' + data.message);
+                    confirmBtn.style.opacity = '1';
+                    confirmBtn.style.pointerEvents = 'auto';
+                    confirmBtn.innerText = 'Confirm Appointment';
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                alert('An error occurred');
+                confirmBtn.style.opacity = '1';
+                confirmBtn.style.pointerEvents = 'auto';
+                confirmBtn.innerText = 'Confirm Appointment';
+            });
         });
     }
 
@@ -71,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
     cancelBtns.forEach(btn => {
         btn.addEventListener('click', function() {
             if(confirm('Are you sure you want to cancel/go back?')) {
-                window.location.href = 'student-dashboard.html';
+                window.location.href = 'student-dashboard.php';
             }
         });
     });

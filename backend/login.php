@@ -3,7 +3,7 @@ session_start();
 require 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'] ?? '';
+    $email = trim($_POST['email'] ?? '');
     $password = $_POST['password'] ?? '';
 
     if (empty($email) || empty($password)) {
@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    if ($result->num_rows === 1) {
-        $user = $result->fetch_assoc();
+    if ($user = $result->fetch_assoc()) {
         
         if (password_verify($password, $user['password_hash'])) {
             $_SESSION['user_id'] = $user['user_id'];
@@ -25,7 +24,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $_SESSION['full_name'] = $user['full_name'];
 
             if ($user['role'] === 'student') {
-                header("Location: ../student-module/student-dashboard.html");
+                header("Location: ../student-module/student-dashboard.php");
             } elseif ($user['role'] === 'advisor') {
                 // Adjust to the actual advisor dashboard filename if different
                 header("Location: ../advisor-module/advisor-dashboard.html"); 
