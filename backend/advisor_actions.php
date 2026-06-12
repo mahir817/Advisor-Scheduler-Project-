@@ -70,6 +70,7 @@ try {
         }
 
         $conn->commit();
+        file_put_contents(__DIR__ . '/../api/queue/state.txt', time());
         echo json_encode(['success' => true]);
 
     } elseif ($action === 'mark_complete') {
@@ -81,6 +82,7 @@ try {
         $stmt->bind_param("i", $appt_id);
         $stmt->execute();
         $conn->commit();
+        file_put_contents(__DIR__ . '/../api/queue/state.txt', time());
         echo json_encode(['success' => true]);
 
     } elseif ($action === 'mark_missed') {
@@ -108,6 +110,7 @@ try {
         }
 
         $conn->commit();
+        file_put_contents(__DIR__ . '/../api/queue/state.txt', time());
         echo json_encode(['success' => true]);
 
     } else {

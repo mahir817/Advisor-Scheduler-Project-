@@ -22,7 +22,7 @@ $student_id = $student['student_id'] ?? null;
 // Get upcoming appointment
 $appt = null;
 if ($student_id) {
-    $appt_query = "SELECT a.status, a.appointment_date, a.appointment_time, 
+    $appt_query = "SELECT a.status, a.appointment_date, a.appointment_time, a.advisor_id,
                           ap.room_number, d.department_name, u.full_name as advisor_name, 
                           qt.token_number, qt.estimated_wait_minutes 
                    FROM appointments a 
@@ -140,7 +140,7 @@ $faculty_res = $conn->query($faculty_query);
             <div class="col-quick-actions">
                 <div class="section-title">Quick Actions</div>
                 <div class="quick-cards-wrapper">
-                    <a href="booking.html" class="action-card bg-white" style="text-decoration: none;">
+                    <a href="booking.php" class="action-card bg-white" style="text-decoration: none;">
                         <div class="action-icon">&#128197;</div>
                         <div class="action-text">Book Appointment</div>
                     </a>
@@ -177,7 +177,7 @@ $faculty_res = $conn->query($faculty_query);
                         
                         <div class="btn-group">
                             <div class="btn btn-cyan btn-ask">Upload Documents</div>
-                            <a href="queue-status.html" class="btn btn-blue btn-view" style="text-decoration: none;">Appointment Room</a>
+                            <a href="queue-status.php" class="btn btn-blue btn-view" style="text-decoration: none;">Appointment Room</a>
                         </div>
                     <?php else: ?>
                         <div style="padding: 30px; text-align: center; color: #666;">
@@ -203,7 +203,7 @@ $faculty_res = $conn->query($faculty_query);
                                     </div>
                                 </div>
                                 <div class="faculty-right">
-                                    <a href="booking.html?advisor_id=<?php echo $faculty['advisor_id'] ?? 2; ?>" class="btn btn-cyan" style="padding: 5px 10px; font-size:12px; text-decoration: none; display: inline-block;">Book an Appointment</a>
+                                    <a href="booking.php?advisor_id=<?php echo $faculty['advisor_id'] ?? 2; ?>" class="btn btn-cyan" style="padding: 5px 10px; font-size:12px; text-decoration: none; display: inline-block;">Book an Appointment</a>
                                     <?php if($faculty['is_available']): ?>
                                         <div class="pill pill-green">Available</div>
                                     <?php else: ?>
@@ -221,6 +221,26 @@ $faculty_res = $conn->query($faculty_query);
     
     <script src="js/student.js"></script>
     <script>
+        <?php if ($appt && isset($appt['advisor_id'])): ?>
+        const advisorId = <?php echo $appt['advisor_id']; ?>;
+        const eventSource = new EventSource('../api/queue/stream.php?advisor_id=' + advisorId);
+        
+        eventSource.addEventListener('QUEUE_STATE_CHANGED', function(e) {
+            const data = JSON.parse(e.data);
+            console.log('Real-time Queue Update:', data);
+            
+            // Wait time update
+            const waitEl = document.getElementById('ui-token-wait');
+            
+            // To calculate wait time, we need to know the student's token.
+            // But we can just reload the page or fetch specific status if the queue advances.
+            // But even better, if we receive an update, we could just reload for simplicity, 
+            // OR fetch the status dynamically. Since the SSE just broadcasts the advisor queue state,
+            // we will fetch the student's specific status to update the UI cleanly.
+            fetchQueueStatus();
+        });
+        <?php endif; ?>
+
         function fetchQueueStatus() {
             fetch('../backend/get_queue_status.php')
                 .then(res => res.json())
@@ -246,14 +266,17 @@ $faculty_res = $conn->query($faculty_query);
                             waitingNode.style.backgroundColor = ['waiting', 'serving'].includes(rawStatus) ? '#007bff' : '';
                             servingNode.style.backgroundColor = ['serving'].includes(rawStatus) ? '#007bff' : '';
                             if (canceledNode) canceledNode.style.backgroundColor = ['cancelled', 'missed'].includes(rawStatus) ? '#ff4d4d' : '';
+                            
+                            // Check for "moved to last" penalty alert dynamically
+                            if (rawStatus === 'waiting' && data.estimated_wait_minutes > 0) {
+                                // If they were serving and missed it, the backend sets them to waiting
+                                // Here we can show a toast or alert if we detect a shift backward.
+                            }
                         }
                     }
                 })
                 .catch(err => console.error('Error fetching queue status', err));
         }
-
-        // Long polling / real-time updates every 10 seconds
-        setInterval(fetchQueueStatus, 10000); 
 
         // Fetch immediately on load to sync running token
         fetchQueueStatus();

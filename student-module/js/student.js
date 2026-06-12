@@ -58,38 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
     
-    const confirmBtn = document.querySelector('.btn-confirm');
-    if (confirmBtn) {
-        confirmBtn.addEventListener('click', function() {
-            // Disable button
-            confirmBtn.style.opacity = '0.5';
-            confirmBtn.style.pointerEvents = 'none';
-            confirmBtn.innerText = 'Booking...';
-
-            fetch('../backend/book_appointment.php', {
-                method: 'POST',
-            })
-            .then(res => res.json())
-            .then(data => {
-                if(data.success) {
-                    alert('Appointment successfully booked!');
-                    window.location.href = 'student-dashboard.php';
-                } else {
-                    alert('Error: ' + data.message);
-                    confirmBtn.style.opacity = '1';
-                    confirmBtn.style.pointerEvents = 'auto';
-                    confirmBtn.innerText = 'Confirm Appointment';
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                alert('An error occurred');
-                confirmBtn.style.opacity = '1';
-                confirmBtn.style.pointerEvents = 'auto';
-                confirmBtn.innerText = 'Confirm Appointment';
-            });
-        });
-    }
+    // Booking logic handled in booking.php inline script
 
     // For queue status page cancel button (btn-cancel) and booking page
     const cancelBtns = document.querySelectorAll('.btn-cancel');
@@ -129,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
     bookBtns.forEach(btn => {
         if(btn.textContent.trim() === 'Book an Appointment') {
             btn.addEventListener('click', () => {
-                window.location.href = 'booking.html';
+                window.location.href = 'booking.php';
             });
         }
     });
@@ -145,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const availBtns = document.querySelectorAll('.avail-btn');
     availBtns.forEach(btn => {
         btn.addEventListener('click', () => {
-            window.location.href = 'booking.html';
+            window.location.href = 'booking.php';
         });
     });
 });

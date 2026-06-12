@@ -1,4 +1,5 @@
 <?php
+date_default_timezone_set('Asia/Dhaka');
 $host = 'localhost';
 $user = 'root';
 $pass = ''; // Default XAMPP password is empty

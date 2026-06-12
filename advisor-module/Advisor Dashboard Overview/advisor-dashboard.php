@@ -213,6 +213,14 @@ function markMissed(appointmentId) {
         body: `action=mark_missed&appointment_id=${appointmentId}`
     }).then(r => r.json()).then(d => { if(d.success) location.reload(); else alert(d.message); });
 }
+
+// Listen for incoming new bookings via SSE
+const advisorId = <?php echo $advisor_id; ?>;
+const eventSource = new EventSource('../../api/queue/stream.php?advisor_id=' + advisorId);
+eventSource.addEventListener('QUEUE_STATE_CHANGED', function(e) {
+    console.log('Queue state changed remotely. Reloading dashboard...');
+    location.reload();
+});
 </script>
 </body>
 </html>
