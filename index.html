@@ -19,15 +19,15 @@
                 <div class="scheduler-text">UIU Advisor Scheduler</div>
                 <div class="welcome-text">Welcome to the Portal</div>
                 
-                <div class="form-wrapper">
-                    <input type="email" placeholder="Enter Email" class="input-field">
-                    <input type="password" placeholder="Enter Password" class="input-field">
+                <form action="backend/login.php" method="POST" class="form-wrapper">
+                    <input type="email" name="email" placeholder="Enter Email" class="input-field" required>
+                    <input type="password" name="password" placeholder="Enter Password" class="input-field" required>
                     
-                    <a href="student-module/student-dashboard.html" class="login-button" style="text-decoration: none;">
+                    <button type="submit" class="login-button" style="border:none; cursor:pointer; width:100%; font-family:inherit; font-size:16px;">
                         <span>Login</span>
-                    </a>
+                    </button>
                     <a href="#" class="forgot-link">Forgot Password?</a>
-                </div>
+                </form>
             </div>
         </div>
     </div>

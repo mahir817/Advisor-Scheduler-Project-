@@ -8,6 +8,9 @@
 --   • Admin Module    (overview, manage advisors, manage students, appointment logs)
 -- ================================================================
 
+CREATE DATABASE IF NOT EXISTS uiu_advisor_db;
+USE uiu_advisor_db;
+
 -- Drop existing tables (in reverse dependency order) for a clean setup
 DROP TABLE IF EXISTS messages;
 DROP TABLE IF EXISTS documents;
@@ -261,3 +264,20 @@ CREATE INDEX idx_penalties_student ON penalties(student_id);
 
 -- Message inbox queries
 CREATE INDEX idx_messages_receiver ON messages(receiver_id, is_read);
+
+-- ================================================================
+-- SAMPLE USERS DATA
+-- All passwords are 'password123'
+-- ================================================================
+INSERT INTO users (email, password_hash, role, full_name, is_active) VALUES
+('student@uiu.ac.bd', '$2y$10$dQVTvoJY8grKhrBExxAXY.4taTsFhSTq/WkCjAdn1PtvtKOGW5s2G', 'student', 'Mahir Ahmed', 1),
+('advisor@uiu.ac.bd', '$2y$10$dQVTvoJY8grKhrBExxAXY.4taTsFhSTq/WkCjAdn1PtvtKOGW5s2G', 'advisor', 'Mahmudul Hasan', 1),
+('admin@uiu.ac.bd', '$2y$10$dQVTvoJY8grKhrBExxAXY.4taTsFhSTq/WkCjAdn1PtvtKOGW5s2G', 'admin', 'System Admin', 1);
+
+-- Insert sample student profile
+INSERT INTO students (student_id, user_id, department_id, status) VALUES
+('0112210450', (SELECT user_id FROM users WHERE email='student@uiu.ac.bd'), 1, 'active');
+
+-- Insert sample advisor profile
+INSERT INTO advisor_profiles (user_id, department_id, title, room_number, office_hours) VALUES
+((SELECT user_id FROM users WHERE email='advisor@uiu.ac.bd'), 1, 'Associate Professor', '512(A)', '10:00 AM - 2:00 PM');
