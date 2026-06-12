@@ -4,7 +4,7 @@ require 'db_connect.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = trim($_POST['email'] ?? '');
-    $password = $_POST['password'] ?? '';
+    $password = trim($_POST['password'] ?? '');
 
     if (empty($email) || empty($password)) {
         echo "<script>alert('Please fill in all fields'); window.history.back();</script>";
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 header("Location: ../student-module/student-dashboard.php");
             } elseif ($user['role'] === 'advisor') {
                 // Adjust to the actual advisor dashboard filename if different
-                header("Location: ../advisor-module/advisor-dashboard.html"); 
+                header("Location: ../advisor-module/Advisor Dashboard Overview/advisor-dashboard.php"); 
             } elseif ($user['role'] === 'admin') {
                 // Adjust to the actual admin dashboard filename if different
                 header("Location: ../admin-module/admin-dashboard.html"); 

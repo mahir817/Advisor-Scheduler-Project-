@@ -42,7 +42,7 @@ if ($student_id) {
 }
 
 // Get available faculty
-$faculty_query = "SELECT u.full_name, d.department_name, ap.is_available 
+$faculty_query = "SELECT ap.advisor_id, u.full_name, d.department_name, ap.is_available 
                   FROM advisor_profiles ap 
                   JOIN users u ON ap.user_id = u.user_id 
                   LEFT JOIN departments d ON ap.department_id = d.department_id 
@@ -85,10 +85,10 @@ $faculty_res = $conn->query($faculty_query);
                 <div class="card token-card">
                     <div class="token-label">Token Number</div>
                     <?php if ($appt && $appt['token_number']): ?>
-                        <div class="token-status">#<?php echo $appt['token_number']; ?></div>
-                        <div class="token-sub">Status: <?php echo ucfirst($appt['status']); ?></div>
+                        <div class="token-status" id="ui-token-num">#<?php echo $appt['token_number']; ?></div>
+                        <div class="token-sub" id="ui-token-status">Status: <?php echo ucfirst($appt['status']); ?></div>
                         <div class="token-right">
-                            <div class="token-time"><?php echo $appt['estimated_wait_minutes'] ?? '0'; ?> mins</div>
+                            <div class="token-time" id="ui-token-wait"><?php echo $appt['estimated_wait_minutes'] ?? '0'; ?> mins</div>
                             <div class="token-wait">&#128336; Est. wait</div>
                         </div>
                     <?php elseif ($appt): ?>
@@ -117,19 +117,19 @@ $faculty_res = $conn->query($faculty_query);
                             $serving = in_array($status, ['serving']) ? 'style="background-color: #007bff;"' : '';
                             ?>
                             <div class="node-wrapper">
-                                <div class="node-circle" <?php echo $booked; ?>></div>
+                                <div class="node-circle" id="node-booked" <?php echo $booked; ?>></div>
                                 <div class="node-label">Booked</div>
                             </div>
                             <div class="node-wrapper">
-                                <div class="node-circle" <?php echo $waiting; ?>></div>
+                                <div class="node-circle" id="node-waiting" <?php echo $waiting; ?>></div>
                                 <div class="node-label">Waiting</div>
                             </div>
                             <div class="node-wrapper">
-                                <div class="node-circle" <?php echo $serving; ?>></div>
+                                <div class="node-circle" id="node-serving" <?php echo $serving; ?>></div>
                                 <div class="node-label">Serving</div>
                             </div>
                             <div class="node-wrapper">
-                                <div class="node-circle"></div>
+                                <div class="node-circle" id="node-canceled"></div>
                                 <div class="node-label">Canceled</div>
                             </div>
                         </div>
@@ -167,7 +167,7 @@ $faculty_res = $conn->query($faculty_query);
                         </div>
                         
                         <div class="run-token-label">Running token Number</div>
-                        <div class="run-token-num">#<?php echo $appt['token_number'] ?? '--'; ?></div>
+                        <div class="run-token-num" id="ui-running-token">#--</div>
                         
                         <div class="info-row">
                             <div class="info-item">&#128197; <?php echo date('M d, Y', strtotime($appt['appointment_date'])); ?></div>
@@ -176,7 +176,7 @@ $faculty_res = $conn->query($faculty_query);
                         </div>
                         
                         <div class="btn-group">
-                            <div class="btn btn-cyan btn-ask">Upoad Documents</div>
+                            <div class="btn btn-cyan btn-ask">Upload Documents</div>
                             <a href="queue-status.html" class="btn btn-blue btn-view" style="text-decoration: none;">Appointment Room</a>
                         </div>
                     <?php else: ?>
@@ -203,7 +203,7 @@ $faculty_res = $conn->query($faculty_query);
                                     </div>
                                 </div>
                                 <div class="faculty-right">
-                                    <div class="btn btn-cyan" style="padding: 5px 10px; font-size:12px;">Book an Appointment</div>
+                                    <a href="booking.html?advisor_id=<?php echo $faculty['advisor_id'] ?? 2; ?>" class="btn btn-cyan" style="padding: 5px 10px; font-size:12px; text-decoration: none; display: inline-block;">Book an Appointment</a>
                                     <?php if($faculty['is_available']): ?>
                                         <div class="pill pill-green">Available</div>
                                     <?php else: ?>
@@ -220,5 +220,43 @@ $faculty_res = $conn->query($faculty_query);
     </div>
     
     <script src="js/student.js"></script>
+    <script>
+        function fetchQueueStatus() {
+            fetch('../backend/get_queue_status.php')
+                .then(res => res.json())
+                .then(data => {
+                    if (data.has_appointment) {
+                        const statusEl = document.getElementById('ui-token-status');
+                        if (statusEl) statusEl.innerText = 'Status: ' + data.status;
+
+                        const waitEl = document.getElementById('ui-token-wait');
+                        if (waitEl) waitEl.innerText = data.estimated_wait_minutes + ' mins';
+
+                        const runEl = document.getElementById('ui-running-token');
+                        if (runEl) runEl.innerText = '#' + data.running_token;
+
+                        const rawStatus = data.raw_status;
+                        const bookedNode = document.getElementById('node-booked');
+                        const waitingNode = document.getElementById('node-waiting');
+                        const servingNode = document.getElementById('node-serving');
+                        const canceledNode = document.getElementById('node-canceled');
+
+                        if (bookedNode && waitingNode && servingNode) {
+                            bookedNode.style.backgroundColor = ['booked', 'waiting', 'serving'].includes(rawStatus) ? '#007bff' : '';
+                            waitingNode.style.backgroundColor = ['waiting', 'serving'].includes(rawStatus) ? '#007bff' : '';
+                            servingNode.style.backgroundColor = ['serving'].includes(rawStatus) ? '#007bff' : '';
+                            if (canceledNode) canceledNode.style.backgroundColor = ['cancelled', 'missed'].includes(rawStatus) ? '#ff4d4d' : '';
+                        }
+                    }
+                })
+                .catch(err => console.error('Error fetching queue status', err));
+        }
+
+        // Long polling / real-time updates every 10 seconds
+        setInterval(fetchQueueStatus, 10000); 
+
+        // Fetch immediately on load to sync running token
+        fetchQueueStatus();
+    </script>
 </body>
 </html>
