@@ -50,9 +50,11 @@
 
     <!-- TABS -->
     <div class="tabs">
-      <button class="tab active">Weekly Availability</button>
-      <button class="tab">Custom Unavailable Times</button>
+      <button class="tab active" data-target="weekly-view">Weekly Availability</button>
+      <button class="tab" data-target="custom-view">Custom Unavailable Times</button>
     </div>
+
+    <div id="weekly-view" class="view-section">
 
     <!-- MONDAY -->
     <div class="day-card">
@@ -226,8 +228,30 @@
       <button class="save-btn">✔ Save Weekly Schedule</button>
 
     </div>
+    </div> <!-- END OF weekly-view -->
+
+    <div id="custom-view" class="view-section" style="display: none;">
+      <div class="day-card" style="flex-direction: column; align-items: stretch; margin-bottom: 20px;">
+        <h3 style="margin-bottom: 15px; color: #2f2c52;">Added Unavailable Times</h3>
+        <div class="slots custom-list" style="margin-top: 0; padding-left: 0;">
+            <div class="slot" style="justify-content: space-between; border-left: none; padding-left: 15px;">
+                <div><strong>June 15, 2026</strong> <br> 10:00 AM - 12:00 PM - Faculty Meeting</div>
+                <button class="delete-btn">×</button>
+            </div>
+        </div>
+        
+        <div style="margin-top: 20px; display: flex; flex-wrap: wrap; gap: 10px;">
+            <input type="date" id="custom-date" style="padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            <input type="time" id="custom-time-start" style="padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            <input type="time" id="custom-time-end" style="padding: 10px; border: 1px solid #ddd; border-radius: 8px;">
+            <input type="text" id="custom-reason" placeholder="Reason (e.g. Leave)" style="padding: 10px; flex: 1; min-width: 200px; border: 1px solid #ddd; border-radius: 8px;">
+            <button class="custom-add-btn" id="add-custom-btn" style="width: auto; padding: 10px 20px; background: #6c5ce7; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">＋ Add</button>
+        </div>
+      </div>
+    </div>
 
   </div>
 
+<script src="../js/advisor.js"></script>
 </body>
 </html>

@@ -18,6 +18,8 @@
             justify-content: space-between;
             padding: 20px 0;
             position: fixed;
+            top: 0;
+            left: 0;
             height: 100vh;
             z-index: 100;
         }
@@ -56,7 +58,7 @@
             transition: 0.2s;
         }
         .sidebar-bottom a:hover { background: #44406b; color: white; }
-        .page-content { margin-left: 220px; flex: 1; }
+        .page-content { margin-left: 220px; flex: 1; padding: 20px; }
     </style>
 </head>
 <body>
@@ -90,7 +92,7 @@
         </div>
         <div class="sidebar-bottom">
             <a href="../../index.html">
-                <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Back to Portal</span>
+                <i class="fa-solid fa-arrow-right-from-bracket"></i><span>Log Out</span>
             </a>
         </div>
     </div>
@@ -145,12 +147,11 @@
 
             <div class="booking-section">
                 <div class="tabs">
-                    <button class="active" onclick="location.href='AppoinmentManagement.html'">Approval Queue</button>
-                    <button onclick="location.href='AppoinmentManagement.html'">Waiting List</button>
-                    <button onclick="location.href='../Statistics/satistics.html'">Statistics</button>
+                    <button class="tab-btn active" data-target="approval-queue">Approval Queue</button>
+                    <button class="tab-btn" data-target="waiting-list">Waiting List</button>
                 </div>
 
-                <div class="booking-list">
+                <div class="booking-list" id="approval-queue">
                     <h3>Booking Requests</h3>
 
                     <div class="request-row">
@@ -160,7 +161,7 @@
                             <p>Course Add • 12:10PM</p>
                         </div>
                         <div class="actions">
-                            <button class="btn-preview">Preview File</button>
+                            <button class="btn-desc">View Description</button>
                             <button class="btn-approve">Approve</button>
                             <button class="btn-decline">Decline</button>
                         </div>
@@ -178,9 +179,46 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="booking-list" id="waiting-list" style="display: none;">
+                    <h3>Waiting List</h3>
+
+                    <div class="request-row">
+                        <div class="token-id">#08</div>
+                        <div class="student-info">
+                            <strong>Sadia Rahman</strong> <span>2021-1-60-102</span>
+                            <p>Retake Issue • 12:40PM</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-desc">View Description</button>
+                            <button class="btn-decline">Remove</button>
+                        </div>
+                    </div>
+                    
+                    <div class="request-row">
+                        <div class="token-id">#09</div>
+                        <div class="student-info">
+                            <strong>Imran Khan</strong> <span>2021-1-60-055</span>
+                            <p>Project Discussion • 01:00PM</p>
+                        </div>
+                        <div class="actions">
+                            <button class="btn-decline">Remove</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 
+    <!-- Description Popup Modal -->
+    <div id="desc-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" id="close-modal">&times;</span>
+            <h3 style="margin-bottom: 10px;">Request Description</h3>
+            <p id="desc-text" style="color: #555; line-height: 1.5;">Here is the detailed description of the student's request...</p>
+        </div>
+    </div>
+
+<script src="../js/advisor.js"></script>
 </body>
 </html>

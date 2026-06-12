@@ -97,7 +97,7 @@
         <div class="sidebar-bottom">
             <a href="../../index.html">
                 <i class="fa-solid fa-arrow-right-from-bracket"></i>
-                <span>Back to Portal</span>
+                <span>Log Out</span>
             </a>
         </div>
     </div>
@@ -110,8 +110,7 @@
             <div class="breadcrumbs">Pages &gt; Dashboard</div>
             <div class="top-right">
                 <div class="time" id="live-time">10:59:43 PM</div>
-                <button class="status-btn">Active</button>
-                <button class="summary-btn">Daily Summary</button>
+                <button class="status-btn" id="status-btn">Active</button>
             </div>
         </div>
 
@@ -119,7 +118,7 @@
         <div class="header">
             <div>
                 <h1>Welcome back, Dr. Rahman 👋</h1>
-                <p>Thursday, May 7 2026</p>
+                <p id="current-date">Thursday, May 7 2026</p>
             </div>
             <div class="office-hours">Office Hours: 9:00 AM - 5:00 PM</div>
         </div>
@@ -190,15 +189,7 @@
 
 </div>
 
-<script>
-    // Live clock
-    function updateTime() {
-        const now = new Date();
-        document.getElementById('live-time').textContent = now.toLocaleTimeString();
-    }
-    updateTime();
-    setInterval(updateTime, 1000);
-</script>
+<script src="../js/advisor.js"></script>
 
 </body>
 </html>

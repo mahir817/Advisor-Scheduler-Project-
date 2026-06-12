@@ -92,47 +92,58 @@
 
                 <div class="section-title">
                     <h3>This Week's Overview</h3>
-                    <p>Daily completed vs missed appointments</p>
+                    <p>Daily completed, missed, and cancelled appointments</p>
                 </div>
 
-
-                <div class="chart">
-
-                    <div class="bar-group">
-
-                        <div class="bar-wrapper">
-                            <div class="bar green-bar h1"></div>
-                            <div class="bar red-bar h2"></div>
+                <div class="chart stacked-chart-container">
+                    <div class="stacked-cols">
+                        <div class="stacked-col">
+                            <div class="stack-wrapper">
+                                <div class="stack-segment yellow-segment" style="height: 10%;"><span>2</span></div>
+                                <div class="stack-segment red-segment" style="height: 15%;"><span>4</span></div>
+                                <div class="stack-segment green-segment" style="height: 75%;"><span>25</span></div>
+                            </div>
+                            <span class="x-label">Mon</span>
                         </div>
-
-                        <span>Mon</span>
-
+                        <div class="stacked-col">
+                            <div class="stack-wrapper">
+                                <div class="stack-segment yellow-segment" style="height: 5%;"><span>1</span></div>
+                                <div class="stack-segment red-segment" style="height: 20%;"><span>5</span></div>
+                                <div class="stack-segment green-segment" style="height: 75%;"><span>20</span></div>
+                            </div>
+                            <span class="x-label">Tue</span>
+                        </div>
+                        <div class="stacked-col">
+                            <div class="stack-wrapper">
+                                <div class="stack-segment yellow-segment" style="height: 10%;"><span>2</span></div>
+                                <div class="stack-segment red-segment" style="height: 10%;"><span>2</span></div>
+                                <div class="stack-segment green-segment" style="height: 80%;"><span>22</span></div>
+                            </div>
+                            <span class="x-label">Wed</span>
+                        </div>
+                        <div class="stacked-col">
+                            <div class="stack-wrapper">
+                                <div class="stack-segment yellow-segment" style="height: 10%;"><span>3</span></div>
+                                <div class="stack-segment red-segment" style="height: 15%;"><span>4</span></div>
+                                <div class="stack-segment green-segment" style="height: 75%;"><span>24</span></div>
+                            </div>
+                            <span class="x-label">Thu</span>
+                        </div>
+                        <div class="stacked-col">
+                            <div class="stack-wrapper">
+                                <div class="stack-segment yellow-segment" style="height: 5%;"><span>1</span></div>
+                                <div class="stack-segment red-segment" style="height: 5%;"><span>1</span></div>
+                                <div class="stack-segment green-segment" style="height: 90%;"><span>28</span></div>
+                            </div>
+                            <span class="x-label">Fri</span>
+                        </div>
                     </div>
 
-                    <div class="bar-wrapper">
-                        <div class="bar green-bar h3"></div>
-                        <div class="bar red-bar h4"></div>
-                        <span>Tue</span>
+                    <div class="chart-legend">
+                        <div class="legend-item"><span class="dot yellow-dot"></span> Cancelled</div>
+                        <div class="legend-item"><span class="dot red-dot"></span> Missed</div>
+                        <div class="legend-item"><span class="dot green-dot"></span> Completed</div>
                     </div>
-
-                    <div class="bar-wrapper">
-                        <div class="bar green-bar h5"></div>
-                        <div class="bar red-bar h6"></div>
-                        <span>Wed</span>
-                    </div>
-
-                    <div class="bar-wrapper">
-                        <div class="bar green-bar h7"></div>
-                        <div class="bar red-bar h8"></div>
-                        <span>Thu</span>
-                    </div>
-
-                    <div class="bar-wrapper">
-                        <div class="bar green-bar h9"></div>
-                        <div class="bar red-bar h10"></div>
-                        <span>Fri</span>
-                    </div>
-
                 </div>
 
 
@@ -159,47 +170,7 @@
 
             <div class="side-column">
 
-                <div class="side-card">
 
-                    <div class="section-title">
-                        <h3>Status Distribution</h3>
-                        <p>Breakdown of all appointment outcomes</p>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-head">
-                            <span>Completed</span>
-                            <span>284</span>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-fill green-fill"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-head">
-                            <span>Missed</span>
-                            <span>23</span>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-fill red-fill small"></div>
-                        </div>
-                    </div>
-
-                    <div class="progress-item">
-                        <div class="progress-head">
-                            <span>Cancelled</span>
-                            <span>12</span>
-                        </div>
-
-                        <div class="progress">
-                            <div class="progress-fill yellow-fill tiny"></div>
-                        </div>
-                    </div>
-
-                </div>
 
 
                 <div class="side-card">
@@ -257,7 +228,7 @@
                     <p>Students who missed more than 3 appointments</p>
                 </div>
 
-                <button>+ High Risk</button>
+                <button id="add-high-risk-btn">+ High Risk</button>
 
             </div>
 
@@ -315,6 +286,6 @@
 
     </div>
 
+<script src="../js/advisor.js"></script>
 </body>
-
 </html>

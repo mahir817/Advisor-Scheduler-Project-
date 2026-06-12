@@ -8,7 +8,6 @@
 
 body {
     background-color: #eef5ff;
-    padding: 20px;
 }
 
 .dashboard-container {
@@ -137,4 +136,49 @@ body {
     background: #6c5ce7;
     height: 100%;
     border-radius: 5px;
+}
+
+/* Modal Styling */
+.modal {
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; 
+    padding: 30px;
+    border: 1px solid #888;
+    width: 400px; 
+    max-width: 90%;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close-btn {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover,
+.close-btn:focus {
+    color: #333;
+    text-decoration: none;
+}
+
+.btn-desc {
+    background: #eef5ff;
+    color: #6c5ce7;
+    border: 1px solid #6c5ce7 !important;
 }
