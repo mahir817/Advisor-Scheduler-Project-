@@ -76,14 +76,14 @@ $advisors = $adv_res->fetch_all(MYSQLI_ASSOC);
                 </div>
                 <div class="time-grid" id="time-grid">
                     <!-- Simple hardcoded standard slots for demonstration of functionality -->
-                    <div class="time-box" data-time="09:00:00">09:00 AM</div>
-                    <div class="time-box" data-time="09:30:00">09:30 AM</div>
-                    <div class="time-box" data-time="10:00:00">10:00 AM</div>
-                    <div class="time-box" data-time="10:30:00">10:30 AM</div>
-                    <div class="time-box" data-time="11:00:00">11:00 AM</div>
-                    <div class="time-box" data-time="11:30:00">11:30 AM</div>
-                    <div class="time-box" data-time="14:00:00">02:00 PM</div>
-                    <div class="time-box" data-time="14:30:00">02:30 PM</div>
+                    <div class="time-box" data-time="09:00:00">08:30 AM</div>
+                    <div class="time-box" data-time="09:30:00">09:51 AM</div>
+                    <div class="time-box" data-time="10:00:00">11:11 AM</div>
+                    <div class="time-box" data-time="10:30:00">12:30 PM</div>
+                    <div class="time-box" data-time="11:00:00">01:51 PM</div>
+                    <div class="time-box" data-time="11:30:00">03:10 PM</div>
+                    <div class="time-box" data-time="14:00:00">04:30 PM</div>
+                    <div class="time-box" data-time="14:30:00">05:00 PM</div>
                 </div>
                 
                 <div class="token-header" style="margin-top:30px;">
